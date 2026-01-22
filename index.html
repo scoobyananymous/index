@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionary Assets | Premium Downloads</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        :root { --primary-color: #6366f1; --hover-color: #4f46e5; --bg-color: #f8fafc; --card-bg: #ffffff; --text-dark: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); margin: 0; padding: 0; color: var(--text-dark); }
+        
+        /* تصميم الهيدر */
+        header { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); padding: 40px 20px; text-align: center; color: white; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2); }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; font-weight: 700; }
+        header p { margin-top: 10px; font-size: 1.1rem; opacity: 0.9; font-weight: 300; }
+        
+        /* الشبكة وتوزيع العناصر */
+        .container { max-width: 1200px; margin: -30px auto 0; padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; position: relative; min-height: 300px; }
+        
+        /* كارت الصورة */
+        .image-card { background-color: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .image-card:hover { transform: translateY(-7px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .image-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        
+        .card-content { padding: 20px; }
+        .card-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; color: var(--text-dark); display: block; }
+        .card-desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; display: block; }
+        
+        /* زر التحميل والربح */
+        .download-btn { background-color: var(--primary-color); color: white; text-decoration: none; padding: 12px 0; border-radius: 8px; display: block; text-align: center; font-weight: 600; transition: background 0.3s; border: none; cursor: pointer; width: 100%; }
+        .download-btn:hover { background-color: var(--hover-color); }
+        .download-btn::before { content: "⬇ "; }
+        
+        /* مساحات الإعلانات */
+        .ad-container { width: 100%; display: flex; justify-content: center; margin: 20px 0; }
+        /* تم إزالة الخلفية والحدود ليبدو الإعلان طبيعياً */
+        .ad-box { width: 728px; height: 90px; display: flex; align-items: center; justify-content: center; }
+        
+        footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+        
+        /* شكل التحميل */
+        .loader { border: 5px solid #f3f3f3; border-top: 5px solid var(--primary-color); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 50px auto; display: block; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Visionary Assets</h1>
+        <p>Premium 8K Wallpapers & Creative Resources - Free for Everyone.</p>
+    </header>
+
+    <div class="ad-container">
+        <div class="ad-box">
+            </div>
+    </div>
+
+    <div id="loader" class="loader"></div>
+
+    <div class="container" id="gallery"></div>
+
+    <div class="ad-container">
+        <div class="ad-box">
+            </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Visionary Assets. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ============================================================
+        //  رابط الجدول الجديد الخاص بك
+        const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXleFOoFbt-bQ6VNs9g3y7r5KX_waW_kaEKv6a7OrVlBdw1CpwOira-ACLVXaGyFrtMCIqAa8qUOwH/pub?output=csv"; 
+        // ============================================================
+
+        const gallery = document.getElementById('gallery');
+        const loader = document.getElementById('loader');
+
+        // دالة التنزيل الذكية (تفتح الإعلان والصورة معاً)
+        function downloadAction(imageLink) {
+            // ننتظر نصف ثانية ثم نوجه الصفحة الحالية للصورة
+            setTimeout(function() {
+                window.location.href = imageLink;
+            }, 500);
+            // (الإعلان سيفتح تلقائياً في نافذة جديدة)
+        }
+
+        // جلب البيانات وعرضها
+        Papa.parse(sheetURL, {
+            download: true,
+            header: true,
+            complete: function(results) {
+                loader.style.display = 'none'; // إخفاء التحميل عند الانتهاء
+                const data = results.data;
+                
+                // فحص إذا كان هناك بيانات
+                if (data.length === 0) {
+                    gallery.innerHTML = "<p style='text-align:center; width:100%;'>No images found.</p>";
+                    return;
+                }
+
+                data.forEach(item => {
+                    // التأكد من أن الأعمدة تحتوي بيانات
+                    if(item.Title && item.Image && item.Link) {
+                        const card = `
+                            <div class="image-card">
+                                <img src="${item.Image}" alt="${item.Title}" onerror="this.src='https://via.placeholder.com/300?text=Image+Error'">
+                                <div class="card-content">
+                                    <span class="card-title">${item.Title}</span>
+                                    <span class="card-desc">High Quality | Free Download</span>
+                                    
+                                    <a href="${item.Link}" target="_blank" onclick="downloadAction('${item.Image}')" class="download-btn">Download Full Quality</a>
+                                </div>
+                            </div>
+                        `;
+                        gallery.innerHTML += card;
+                    }
+                });
+            },
+            error: function(err) {
+                loader.style.display = 'none';
+                console.log("Error:", err);
+                gallery.innerHTML = "<p style='text-align:center; width:100%; color:red;'>Error loading data. Please check your connection.</p>";
+            }
+        });
+    </script>
+
+</body>
+</html>
